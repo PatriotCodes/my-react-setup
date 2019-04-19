@@ -26,6 +26,18 @@
     .link {
       color: $react_blue;
     }
+
+    .mobxExample {
+      display: flex;
+      width: 280px;
+      justify-content: space-around;
+      margin-top: 20px;
+
+      button {
+        padding: 5px;
+        font-size: 16px;
+      }
+    }
   }
 }
 
