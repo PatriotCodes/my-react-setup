@@ -6,19 +6,19 @@ import { inject, observer } from 'mobx-react'
 class Login extends Component {
 
   componentWillUnmount() {
-    this.props.authStore.reset();
+    this.props.authStore.reset()
   }
 
-  handleEmailChange = e => this.props.authStore.setEmail(e.target.value);
-  handlePasswordChange = e => this.props.authStore.setPassword(e.target.value);
+  handleEmailChange = e => this.props.authStore.setEmail(e.target.value)
+  handlePasswordChange = e => this.props.authStore.setPassword(e.target.value)
   handleSubmitForm = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     this.props.authStore.login()
       .then(() => console.log('login'))
   };
 
   render() {
-    const { values, inProgress } = this.props.authStore;
+    const { values, inProgress } = this.props.authStore
 
     return (
       <div className="auth-page">
@@ -31,23 +31,18 @@ class Login extends Component {
               <form onSubmit={this.handleSubmitForm}>
                 <fieldset>
 
-                  <fieldset>
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      value={values.email}
-                      onChange={this.handleEmailChange}
-                    />
-                  </fieldset>
-
-                  <fieldset>
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      value={values.password}
-                      onChange={this.handlePasswordChange}
-                    />
-                  </fieldset>
+                  <input
+                    type="text"
+                    placeholder="Login"
+                    value={values.email}
+                    onChange={this.handleEmailChange}
+                  />
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    value={values.password}
+                    onChange={this.handlePasswordChange}
+                  />
 
                   <button
                     type="submit"

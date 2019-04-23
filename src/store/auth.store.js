@@ -30,15 +30,11 @@ class AuthStore {
   }
 
   @action login() {
-    this.inProgress = true;
-    this.errors = undefined;
+    this.inProgress = true
     return authApi.login(this.values.email, this.values.password)
       .then(({ user, token }) => commonStore.setToken(token))
-      .catch(action((err) => {
-        this.errors = err.response && err.response.body && err.response.body.errors;
-        throw err;
-      }))
-      .finally(action(() => { this.inProgress = false; }));
+      .catch(action((err) => { throw err }))
+      .finally(action(() => { this.inProgress = false }))
   }
 }
 

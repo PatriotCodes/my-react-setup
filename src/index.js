@@ -4,6 +4,7 @@ import './sass/styles.scss'
 import Login from './components/Login/Login'
 import * as serviceWorker from './serviceWorker'
 import { Provider } from 'mobx-react'
+import { BrowserRouter } from 'react-router-dom';
 
 import authStore from './store/auth.store'
 import commonStore from './store/common.store'
@@ -15,7 +16,9 @@ const stores = {
 
 ReactDOM.render((
   <Provider {...stores}>
-    <Login />
+    <BrowserRouter>
+      <Login />
+    </BrowserRouter>
   </Provider>
 ), document.getElementById('root'))
 
