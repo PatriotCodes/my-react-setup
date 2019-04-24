@@ -1,6 +1,6 @@
 import { observable, action } from 'mobx'
 import { authApi } from '../api'
-import commonStore from './common.store';
+import commonStore from './common.store'
 
 class AuthStore {
   @observable inProgress = false
