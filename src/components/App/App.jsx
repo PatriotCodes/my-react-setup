@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import logo from '../../assets/logo.svg';
-import styles from './App.module.scss';
-import classNames from 'classnames';
+import React, { Component } from 'react'
+import logo from '../../assets/logo.svg'
+import styles from './App.module.scss'
+import classNames from 'classnames'
 
-import { observable, computed } from 'mobx'
+import { observable, computed, action } from 'mobx'
 import { observer }  from 'mobx-react'
 
 @observer
@@ -11,8 +11,8 @@ class App extends Component {
 
   @observable counter = 0;
 
-  onIncrement = () => {
-    this.counter++;
+  @action.bound onIncrement(amount) {
+    this.counter += amount;
   }
 
   onDecrement = () => {
@@ -44,7 +44,7 @@ class App extends Component {
           </p>
           <div className={styles.mobxExample}>
             {this.counterFormat}
-            <button onClick={this.onIncrement} type="button">Increment</button>
+            <button onClick={() => this.onIncrement(10)} type="button">Increment by 10</button>
             <button onClick={this.onDecrement} type="button">Decrement</button>
           </div>
         </header>
